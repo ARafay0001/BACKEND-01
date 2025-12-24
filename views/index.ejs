@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index.ejs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-900 p-5">
+    <div class="main w-full mb-5">
+      <form action="/create" method="post">
+        <input
+          class="outline-none text-white block mb-3 px-5 py-2 bg-zinc-800 w-full rounded-md"
+          type="text"
+          name="title"
+          placeholder="title"
+        />
+        <textarea
+          class="outline-none mb-3 text-white block resize-none px-5 py-2 bg-zinc-800 w-full rounded-md"
+          name="description"
+          id=""
+          placeholder="description"
+        ></textarea>
+        <input
+          class="bg-blue-600 cursor-pointer text-white px-5 py-2 rounded-md"
+          type="submit"
+          value="create task"
+        />
+      </form>
+    </div>
+    <div class="tast-container flex gap-3 w-full flex-wrap">
+      <% if (files.length > 0) { %> 
+        <% files.forEach((file) => { %>
+      <div
+        class="task min-w-[350px] w-[30%] text-white bg-zinc-800 px-5 py-2 rounded-md"
+      >
+        <h1 class="font-bold text-[22px]"><%= file %></h1>
+        <a href="/files/<%= file %>" class="text-blue-500">Read More....</a>
+      </div>
+      <% }) %> 
+      <% } else { %>
+      <div class="noTask">
+        <div class="task text-white bg-zinc-800 px-5 py-2 rounded-md">
+          <h1 class="font-bold text-[18px] text-zinc-500">
+            No task here yet...
+          </h1>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>
