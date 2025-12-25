@@ -14,6 +14,7 @@
           type="text"
           name="title"
           placeholder="title"
+          
         />
         <textarea
           class="outline-none mb-3 text-white block resize-none px-5 py-2 bg-zinc-800 w-full rounded-md"
@@ -35,7 +36,10 @@
         class="task min-w-[350px] w-[30%] text-white bg-zinc-800 px-5 py-2 rounded-md"
       >
         <h1 class="font-bold text-[22px]"><%= file %></h1>
-        <a href="/files/<%= file %>" class="text-blue-500">Read More....</a>
+        <div class="flex justify-between items-center mt-5">
+          <a href="/edit/<%= file %>" class="text-gray-500">Edit name</a>
+          <a href="/files/<%= file %>" class="text-blue-500">Read More....</a>
+        </div>
       </div>
       <% }) %> 
       <% } else { %>

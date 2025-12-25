@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-900 p-5">
+    <form action="/edit" method="post">
+        <input
+          class="outline-none text-white block mb-3 px-5 py-2 text-zinc-400 bg-zinc-800 w-full rounded-md"
+          type="text"
+          name="pre"
+          placeholder="Previous Name"
+          value="<%= filename %>"
+        />
+        <input
+          class="outline-none text-white block mb-3 px-5 py-2 bg-zinc-800 w-full rounded-md"
+          type="text"
+          name="new"
+          placeholder="Enter the new Name"
+        />
+        <input
+          class="bg-yellow-600 cursor-pointer text-white px-5 py-2 rounded-md"
+          type="submit"
+          value="Edit task"
+        />
+      </form>
+</body>
+</html>

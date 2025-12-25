@@ -27,6 +27,18 @@ app.get('/files/:filename', function(req, res) {
   })
 })
 
+app.get('/edit/:filename', function (req, res) {
+    res.render("edit", {filename: req.params.filename})
+})
+
+app.post('/edit', (req, res) => {
+    if(req.body.new) {
+        fs.rename(`./files/${req.body.pre}`, `./files/${req.body.new}` , function (err) {
+        res.redirect('/')
+    })
+    }
+})
+
 app.post('/create', (req, res) => {
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.description, function (res, err) {
         res.redirect('/')
